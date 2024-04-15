@@ -14,7 +14,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
@@ -82,12 +82,12 @@ fun createScroller(){
 
         HorizontalPager(
             state = pagerState,
-            key = { teams[it] },
+            key = { teams[it].picture },
             pageSize = PageSize.Fill
         ) {index ->
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colors.surface
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant // changed
                 ),
                 modifier = Modifier.size(width = 300.dp, height = 600.dp)
             ){
@@ -115,10 +115,10 @@ fun createScroller(){
 
         Box(
             modifier = Modifier
-                .offset(y = -(35).dp)
+                .offset(y = -(60).dp)
                 .fillMaxWidth(0.5f)
                 .clip(RoundedCornerShape(100))
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colorScheme.background) // changed
                 .padding(8.dp)
                 .align(Alignment.BottomCenter)
         ){
